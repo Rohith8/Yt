@@ -9,7 +9,7 @@
         :root {
             --primary-color: #FF0000;
             --secondary-color: #282828;
-            --background-gradient: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+            --background-gradient: linear-gradient(135deg, #fff 0%, #fff 100%);
         }
 
         body {
@@ -17,7 +17,7 @@
             margin: 0;
             padding: 20px;
             background: var(--background-gradient);
-            color: white;
+            color: black;
             min-height: 100vh;
         }
 
@@ -78,6 +78,7 @@
             border-radius: 50px;
             cursor: pointer;
             font-weight: 600;
+            justify-content: center;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -87,6 +88,7 @@
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+            justify-content: center;
         }
 
         .thumbnails {
@@ -146,6 +148,7 @@
 
         .download-btn:hover {
             background: #009624;
+            
         }
 
         .loader {
@@ -206,27 +209,119 @@
             input[type="text"] {
                 width: 100%;
                 max-width: none;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    </style>
+    <style>
+        /* Previous CSS remains the same */
+
+        /* New Ad Styles */
+        .ad-container {
+            position: fixed;
+            z-index: 100;
+        }
+
+        .side-ad {
+            top: 50%;
+            transform: translateY(-50%);
+            width: 160px;
+        }
+
+        .left-ad {
+            left: 10px;
+        }
+
+        .right-ad {
+            right: 10px;
+        }
+
+        .bottom-ad {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 728px;
+            text-align: center;
+        }
+
+        /* Adjusted Container Padding */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 180px; /* Added padding for side ads */
+            position: relative;
+        }
+
+        /* Centered Input Section */
+        .input-container {
+            max-width: 800px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        @media (max-width: 1300px) {
+            .side-ad {
+                display: none;
+            }
+            .container {
+                padding: 20px;
+                align-items: center;
+                
+            }
+        }
+
+        @media (max-width: 768px) {
+            .bottom-ad {
+                position: static;
+                transform: none;
+                margin-top: 20px;
+                align-items: center;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Ad Containers -->
+    <div class="ad-container left-ad side-ad">
+        <!-- Left AdMob Banner -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="4109804665965224"
+            data-ad-slot="f08c47fec0942fa0"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    </div>
+
+    <div class="ad-container right-ad side-ad">
+        <!-- Right AdMob Banner -->
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="4109804665965224"
+            data-ad-slot="f08c47fec0942fa0"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    </div>
+
     <div class="container">
         <div class="header">
             <img src="https://www.freeiconspng.com/uploads/youtube-logo-png-transparent-image-5.png" alt="YouTube Logo">
             <h1>YouTube Thumbnail Downloader Pro</h1>
         </div>
+        <!-- Header remains same -->
 
         <div class="input-section">
-            <div class="input-group">
-                <input type="text" id="videoUrl" placeholder="Paste YouTube URL or Video ID here...">
-                <button onclick="generateThumbnails()">
+            <div class="input-container">
+                <div class="input-group">
+                    <input type="text" id="videoUrl" placeholder="Paste YouTube URL or Video ID here...">
+                    <button onclick="generateThumbnails()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                     Get Thumbnails
                 </button>
+                </div>
             </div>
         </div>
-
         <div class="loader" id="loader"></div>
         <div id="thumbnailContainer" class="thumbnails"></div>
     </div>
@@ -236,6 +331,20 @@
         <img class="modal-content" id="modalImage">
     </div>
 
+        <!-- Existing content remains same -->
+
+    </div>
+
+    <!-- Bottom Ad -->
+    <div class="ad-container bottom-ad">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="4109804665965224"
+            data-ad-slot="f08c47fec0942fa0"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+    </div>
+    
     <script>
         async function generateThumbnails() {
             const videoUrl = document.getElementById('videoUrl').value;
@@ -332,6 +441,16 @@
                 closeModal();
             }
         }
+    </script>
+
+    <!-- Existing Scripts Remain -->
+
+    <!-- AdMob Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </body>
 </html>
